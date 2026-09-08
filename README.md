@@ -1,5 +1,7 @@
 # Cloudflare Email for Convex
 
+[![Convex Component](https://www.convex.dev/components/badge/convex-cloudflare-email)](https://www.convex.dev/components/convex-cloudflare-email)
+
 A Convex component for sending email through Cloudflare Email Service's beta REST API. Enqueue an email inside a mutation, track its status, and cancel it before sending starts.
 
 This package is an initial beta implementation. It has been tested with mocked Cloudflare responses and a local Convex deployment. Real sending requires your Cloudflare account and an onboarded sending domain.
