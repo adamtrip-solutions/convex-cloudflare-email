@@ -4,3 +4,4 @@ dist/
 .env*
 .convex/
 package-lock.json
+demo/package-lock.json

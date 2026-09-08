@@ -1,0 +1,34 @@
+{
+  "name": "cloudflare-email-demo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run",
+    "check": "npm test && npm run build",
+    "deploy:frontend": "npm run build && wrangler deploy",
+    "dev:backend": "convex dev"
+  },
+  "dependencies": {
+    "@convex-dev/rate-limiter": "0.3.2",
+    "convex": "1.45.0",
+    "convex-cloudflare-email": "0.1.0-beta.0",
+    "convex-helpers": "0.1.124",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@edge-runtime/vm": "5.0.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "@vitejs/plugin-react": "6.1.1",
+    "convex-test": "0.0.56",
+    "typescript": "5.9.3",
+    "vite": "8.2.2",
+    "vitest": "5.0.0",
+    "wrangler": "4.129.1"
+  }
+}

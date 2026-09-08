@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cloudflare-email-demo",
+  "account_id": "90b2181aa26f9e177f5a4629a11533fa",
+  "compatibility_date": "2026-09-08",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application",
+  },
+  "routes": [
+    { "pattern": "cloudflare-email-demo.adamtrip.pt", "custom_domain": true },
+  ],
+  "workers_dev": false,
+  "preview_urls": false,
+}
