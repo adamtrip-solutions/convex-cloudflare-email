@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import { readFileSync, statSync } from "node:fs";
 
+const pkg = JSON.parse(readFileSync("package.json", "utf8"));
+
 // Ask npm for its exact publication manifest without publishing or writing an archive.
 const output = execFileSync(
   "npm",
@@ -9,7 +11,24 @@ const output = execFileSync(
   { encoding: "utf8", stdio: ["ignore", "pipe", "inherit"] },
 );
 const result = JSON.parse(output);
-const manifest = Array.isArray(result) ? result[0] : result;
+// npm 11.19 keys publication results by package name; older versions return the manifest directly.
+const manifest = Array.isArray(result)
+  ? result[0]
+  : (result[pkg.name] ?? result);
+assert.equal(
+  manifest.name,
+  pkg.name,
+  "Publication manifest must match this package",
+);
+assert.equal(
+  manifest.version,
+  pkg.version,
+  "Publication version must match this package",
+);
+assert(
+  Array.isArray(manifest.files) && manifest.files.length > 0,
+  "Publication manifest must contain files",
+);
 const paths = new Set(manifest.files.map((file) => file.path));
 for (const path of paths) {
   assert(
@@ -24,7 +43,6 @@ for (const path of paths) {
   );
   assert(statSync(path).isFile(), `Not a regular file: ${path}`);
 }
-const pkg = JSON.parse(readFileSync("package.json", "utf8"));
 function checkTargets(value) {
   if (typeof value === "string")
     assert(paths.has(value.replace(/^\.\//, "")), `Missing export: ${value}`);
