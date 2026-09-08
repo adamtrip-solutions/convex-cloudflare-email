@@ -1,0 +1,24 @@
+name: Bug report
+description: Report a reproducible problem.
+body:
+  - type: markdown
+    attributes:
+      value: Please use private vulnerability reporting for security issues. Remove tokens, real addresses, and email content from examples.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps or minimal reproduction
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Package, Convex, and Node.js versions
+    validations:
+      required: true
