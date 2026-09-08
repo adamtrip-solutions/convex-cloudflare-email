@@ -6,13 +6,13 @@ This package is an initial beta implementation. It has been tested with mocked C
 
 ## Install
 
-Requires Node.js 22 or newer and Convex 1.45 or newer. Once the first beta release is published, install it from npm:
+Requires Node.js 22 or newer and Convex 1.45 or newer. Install the beta from npm:
 
 ```sh
 npm install convex-cloudflare-email@beta
 ```
 
-The package is currently preparing its first public release. The `beta` tag keeps prereleases separate from stable releases.
+The [npm package](https://www.npmjs.com/package/convex-cloudflare-email) is in beta. Use `@beta` to select the beta channel. Releases will remain on `0.x.x` until the stable `1.0.0` release.
 
 Register the component in `convex/convex.config.ts`. Component environment variables keep credentials out of queued jobs and database rows.
 

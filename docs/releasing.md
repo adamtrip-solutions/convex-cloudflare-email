@@ -32,6 +32,10 @@ Run the release process below for `0.1.0-beta.0`. After it succeeds, configure a
 
 Delete the bootstrap secret, revoke its npm token, and set npm publishing access to require two-factor authentication and disallow tokens. Subsequent releases use GitHub's OIDC identity and produce provenance without a stored npm credential. The Node.js 24 runner includes an npm version that supports trusted publishing.
 
+## Version policy
+
+Keep releases on `0.x.x` throughout beta. Use prerelease versions such as `0.1.0-beta.0` and `0.1.0-beta.1`, published under npm's `beta` tag. Reserve `1.0.0` for the stable release. Document breaking changes in the changelog even during beta.
+
 ## Publishing a version
 
 1. Create a release branch from `main`. Update the version and lockfile with `npm version 0.1.0-beta.1 --no-git-tag-version`, using the intended version. Update the changelog and relevant documentation. Run `npm run check`.
@@ -41,7 +45,7 @@ Delete the bootstrap secret, revoke its npm token, and set npm publishing access
 5. Review and approve the pending `npm` deployment. The publish job rebuilds and checks the verified commit, then runs `npm publish` with provenance. Versions ending in `-alpha.N`, `-beta.N`, or `-rc.N` publish under that channel. Stable versions publish under `latest`.
 6. Confirm the Release workflow is green and inspect `npm view convex-cloudflare-email@VERSION version dist-tags dist.attestations --json`. The GitHub release existing alone does not prove npm publication succeeded.
 
-For the first release, the version already exists in the manifest, so no version bump is needed. Keep the README's pre-publication notice until npm publication succeeds, then replace it with a link to the package.
+The first beta, `0.1.0-beta.0`, is published. npm currently points both `beta` and `latest` at that initial version; install with `@beta` to explicitly follow beta releases. Future beta publications use `--tag beta`, and stable publications use `--tag latest`.
 
 ## Failed runs
 
