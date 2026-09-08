@@ -4,6 +4,10 @@ A Convex component for sending email through Cloudflare Email Service's beta RES
 
 This package is an initial beta implementation. It has been tested with mocked Cloudflare responses and a local Convex deployment. Real sending requires your Cloudflare account and an onboarded sending domain.
 
+## Interactive demo
+
+[Try the hosted demo](https://cloudflare-email-demo.adamtrip.pt) to send a simulated email, watch its status, and repeat the request to verify deduplication. [Demo source and setup](demo/README.md). No external email is sent.
+
 ## Install
 
 Requires Node.js 22 or newer and Convex 1.45 or newer. Install the beta from npm:

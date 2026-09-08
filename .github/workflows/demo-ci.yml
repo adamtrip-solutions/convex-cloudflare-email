@@ -1,0 +1,32 @@
+name: Demo CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+  merge_group:
+permissions:
+  contents: read
+concurrency:
+  group: demo-ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    name: Demo check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: demo
+    env:
+      VITE_CONVEX_URL: https://reliable-lyrebird-289.convex.cloud
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: npm ci
+      - run: npm run check
+      - run: npm audit --omit=dev --audit-level=high

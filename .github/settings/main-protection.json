@@ -2,8 +2,18 @@
   "required_status_checks": {
     "strict": true,
     "checks": [
-      { "context": "Check (Node 22)", "app_id": 15368 },
-      { "context": "Check (Node 24)", "app_id": 15368 }
+      {
+        "context": "Check (Node 22)",
+        "app_id": 15368
+      },
+      {
+        "context": "Check (Node 24)",
+        "app_id": 15368
+      },
+      {
+        "context": "Demo check",
+        "app_id": 15368
+      }
     ]
   },
   "enforce_admins": true,
