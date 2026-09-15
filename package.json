@@ -60,11 +60,11 @@
   },
   "devDependencies": {
     "@edge-runtime/vm": "5.0.0",
-    "@types/node": "^24.0.0",
+    "@types/node": "^26.5.1",
     "convex": "1.45.0",
-    "convex-test": "0.0.56",
+    "convex-test": "0.0.58",
     "prettier": "^3.9.5",
-    "typescript": "5.9.3",
+    "typescript": "7.0.2",
     "vitest": "5.0.0"
   },
   "publishConfig": {
