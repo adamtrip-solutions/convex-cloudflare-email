@@ -65,7 +65,7 @@
     "convex-test": "0.0.56",
     "prettier": "^3.9.5",
     "typescript": "5.9.3",
-    "vitest": "5.0.0"
+    "vitest": "5.0.5"
   },
   "publishConfig": {
     "access": "public",
